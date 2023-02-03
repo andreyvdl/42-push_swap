@@ -6,7 +6,7 @@
 /*   By: adantas- <adantas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:36:58 by adantas-          #+#    #+#             */
-/*   Updated: 2023/02/02 17:20:46 by adantas-         ###   ########.fr       */
+/*   Updated: 2023/02/03 17:44:07 by adantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,49 @@ int	main(int argc, char **argv)
 	stks = validate(argc, argv);
 	if (argc == 2)
 		return (free_strct(&stks), exit(0));
-	else if (argc == 3)
-		bi_sort(&stks);
+	simple_solve(&stks);
 	else if (argc == 4)
 		boog
 	return (free_strct(&stks), exit(0));
+}
+
+int	simple_solve(t_stack *stks)
+{
+	if (stks->sz == 2 && stks->a[0] > stks->a[1])
+		return (swap_a(stks), free_strct(stks), exit(0));
+	else if (stks->sz == 2 && stks->a[0] < stks->a[1])
+		return (free_strct(stks), exit(0));
+	if (stks->sz == 3)
+		return (stooge_sort(stks), free_strct(stks), exit(0));
+	if (stks->sz == 4)
+		return (merge_sort(stks), free_strct(stks), exit(0));
+	return (0);
+}
+
+int	merge_sort(t_stack *stks)
+{
+	if (stks->a[0] > stks->a[1])
+		swap_a(stks);
+	if (stks->a[2] > stks->a[3])
+	{
+		rot_a(stks);
+		rot_a(stks);
+		swap_a(stks);
+	}
+}
+
+int	stooge_sort(t_stack *stks)
+{
+	if (stks->a[0] > stks->a[1])
+		swap_a(stks);
+	if (stks->a[1] > stks->a[2])
+		revrot_a(stks);
+	if (stks->a[0] > stks->a[2])
+		rot_a(stks);
+	if (stks->a[0] > stks->a[1] || stks->a[1] > stks->a[2]
+		|| stks->a[0] > stks->a[2])
+		stooge_sort(stks);
+	return (0);
 }
 
 t_stack	*validate(int size, char **args)
@@ -37,13 +75,14 @@ t_stack	*validate(int size, char **args)
 	int		comp;
 	t_stack	stks;
 
-	stks.a = (int *)ft_calloc(argc, sizeof(int));
-	stks.b = (int *)ft_calloc(argc, sizeof(int));
-	stks.f = (int *)ft_calloc(argc, sizeof(int));
+	stks.a = (int *)ft_calloc(size - 1, sizeof(int));
+	stks.b = (int *)ft_calloc(size - 1, sizeof(int));
+	stks.f = (int *)ft_calloc(size - 1, sizeof(int));
 	if (!stks.a || !stks.b || !stks.f)
 		return (free_strct(&stks), msg(12));
+	stks.sz = size - 1;
 	i = 1;
-	while (i < size - 1)
+	while (i < size)
 	{
 		arg_is_invalid(args[i], &stks);
 		arg_is_over(args[i], &stks);
@@ -56,51 +95,13 @@ t_stack	*validate(int size, char **args)
 
 int	arg_is_over(char *arg, t_stack *stks)
 {
-	int	i;
-	int	comp;
+	ssize_t	comp;
 
-	i = 0;
-	comp = 1;
-	if (arg[i] == '-' || arg[i] == '+')
-	{
-		if (arg[i] == '-')
-			comp = 0;
-		i++;
-	}
-	if (comp)
-		arg_is_big(arg, stks, i);
-	else
-		arg_is_small(arg, stks, i);
-	return (0);
-}
-
-int	arg_is_big(char *arg, t_stack *stks, int i)
-{
-	int	j;
-
-	j = 0;
-	while (arg[i])
-	{
-		if (arg[i] > MAX_INT[j])
-			return (free_strct(stks), msg(22));
-		i++;
-		j++;
-	}
-	return (0);
-}
-
-int	arg_is_small(char *arg, t_stack *stks, int i)
-{
-	int	j;
-
-	j = 1;
-	while (arg[i])
-	{
-		if (arg[i] > MIN_INT[j])
-			return (free_strct(stks), msg(22));
-		i++;
-		j++;
-	}
+	comp = ft_atoi(arg);
+	if (comp > MAX_INT)
+		return (free_strct(stks), msg(22));
+	else if (comp < MIN_INT)
+		return (free_strct(stks), msg(22));
 	return (0);
 }
 

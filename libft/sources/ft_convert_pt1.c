@@ -6,7 +6,7 @@
 /*   By: adantas- <adantas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 12:46:27 by adantas-          #+#    #+#             */
-/*   Updated: 2023/02/01 12:43:13 by adantas-         ###   ########.fr       */
+/*   Updated: 2023/02/03 17:38:34 by adantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,11 @@ static int	decimal(int nbr)
 	return (house);
 }
 
-int	ft_atoi(const char *nptr)
+ssize_t	ft_atoi(const char *nptr)
 {
-	int	i;
-	int	sgn;
-	int	rslt;
+	size_t	i;
+	int		sgn;
+	ssize_t	rslt;
 
 	i = 0;
 	rslt = 0;
