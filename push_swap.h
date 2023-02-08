@@ -6,7 +6,7 @@
 /*   By: adantas- <adantas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 13:57:04 by adantas-          #+#    #+#             */
-/*   Updated: 2023/02/03 12:23:24 by adantas-         ###   ########.fr       */
+/*   Updated: 2023/02/06 15:38:12 by adantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ typedef struct s_stack
 	int		*b;
 	int		*f;
 	size_t	sz;
+	size_t	sz_a;
+	size_t	sz_b;
 }	t_stack;
 
 #endif
