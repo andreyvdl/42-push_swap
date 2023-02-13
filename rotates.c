@@ -6,7 +6,7 @@
 /*   By: adantas- <adantas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 12:44:47 by adantas-          #+#    #+#             */
-/*   Updated: 2023/02/09 12:52:04 by adantas-         ###   ########.fr       */
+/*   Updated: 2023/02/13 13:25:02 by adantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	rot_b(t_stack *stks)
 	ft_println("rb");
 }
 
-void	rot_rr(t_stack *stks)
+void	rot_ab(t_stack *stks)
 {
 	int	i;
 	int	tmp;

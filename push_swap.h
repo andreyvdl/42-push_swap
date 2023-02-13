@@ -6,7 +6,7 @@
 /*   By: adantas- <adantas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 13:57:04 by adantas-          #+#    #+#             */
-/*   Updated: 2023/02/09 13:45:23 by adantas-         ###   ########.fr       */
+/*   Updated: 2023/02/13 14:37:27 by adantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,32 @@ typedef struct s_stack
 	size_t	sz_a;
 	size_t	sz_b;
 }	t_stack;
+
+// moves functions (swaps.c, rotates.c, rev_rotates.c, pushes.c)
+void	rot_a(t_stack *stks);
+void	rot_b(t_stack *stks);
+void	push_a(t_stack *stks);
+void	push_b(t_stack *stks);
+void	rot_ab(t_stack *stks);
+void	swap_a(t_stack *stks);
+void	swap_b(t_stack *stks);
+void	swap_ab(t_stack *stks);
+void	revrot_a(t_stack *stks);
+void	revrot_b(t_stack *stks);
+void	revrot_ab(t_stack *stks);
+
+// errors.c functions
+int		msg(int code);
+void	free_strct(t_stack *stks);
+int		arg_is_over(char *arg, t_stack *stks);
+int		arg_is_invalid(char *arg, t_stack *stks);
+
+// push_swap.c functions
+int		simple_solve(t_stack *stks);
+t_stack	*validate(int size, char **args);
+
+// sorts.c functions
+int		is_sorted(t_stack *stks);
+int		three_sort(t_stack *stks);
 
 #endif

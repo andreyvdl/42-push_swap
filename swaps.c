@@ -6,7 +6,7 @@
 /*   By: adantas- <adantas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 10:54:43 by adantas-          #+#    #+#             */
-/*   Updated: 2023/02/09 12:48:42 by adantas-         ###   ########.fr       */
+/*   Updated: 2023/02/13 13:25:13 by adantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	swap_b(t_stack *stks)
 	ft_println("sb");
 }
 
-void	swap_ss(t_stack *staks)
+void	swap_ab(t_stack *staks)
 {
 	int	tmp;
 

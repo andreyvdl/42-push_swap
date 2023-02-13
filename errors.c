@@ -6,7 +6,7 @@
 /*   By: adantas- <adantas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 15:07:45 by adantas-          #+#    #+#             */
-/*   Updated: 2023/02/09 14:08:47 by adantas-         ###   ########.fr       */
+/*   Updated: 2023/02/13 15:06:33 by adantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,15 @@ int	arg_is_invalid(char *arg, t_stack *stks)
 int	msg(int code)
 {
 	if (code == 12)
-		return (ft_println("Error: ENOMEM: Cannot allocate memory."),
-			exit(code));
+	{
+		ft_println("Error: ENOMEM: Cannot allocate memory.");
+		exit(code);
+	}
 	else if (code == 22)
-		return (ft_println("Error"), exit(code));
+	{
+		ft_println("Error");
+		exit(code);
+	}
 	return (0);
 }
 
