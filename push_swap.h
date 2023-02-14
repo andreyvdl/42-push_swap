@@ -6,7 +6,7 @@
 /*   By: adantas- <adantas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 13:57:04 by adantas-          #+#    #+#             */
-/*   Updated: 2023/02/13 14:37:27 by adantas-         ###   ########.fr       */
+/*   Updated: 2023/02/14 15:37:17 by adantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@ typedef struct s_stack
 {
 	int		*a;
 	int		*b;
+	int		*f;
 	size_t	sz_a;
 	size_t	sz_b;
+	size_t	sz;
 }	t_stack;
 
 // moves functions (swaps.c, rotates.c, rev_rotates.c, pushes.c)
@@ -38,16 +40,19 @@ void	revrot_ab(t_stack *stks);
 
 // errors.c functions
 int		msg(int code);
-void	free_strct(t_stack *stks);
+int	free_strct(t_stack *stks);
 int		arg_is_over(char *arg, t_stack *stks);
 int		arg_is_invalid(char *arg, t_stack *stks);
 
 // push_swap.c functions
-int		simple_solve(t_stack *stks);
-t_stack	*validate(int size, char **args);
+int		validate(int size, char **args, t_stack *stks);
+void	simple_solve(t_stack *stks);
 
 // sorts.c functions
 int		is_sorted(t_stack *stks);
-int		three_sort(t_stack *stks);
+void	stooge_sort(t_stack *stks);
+
+// debug.c
+void	print_stacks(t_stack *stks);
 
 #endif

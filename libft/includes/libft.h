@@ -6,7 +6,7 @@
 /*   By: adantas- <adantas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 15:00:37 by adantas-          #+#    #+#             */
-/*   Updated: 2023/01/31 13:01:51 by adantas-         ###   ########.fr       */
+/*   Updated: 2023/02/14 15:32:00 by adantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 size_t	ft_btoi(char *bin);
 size_t	ft_htoi(char *hex);
 size_t	ft_otoi(char *octal);
-int		ft_atoi(const char *nptr);
+ssize_t	ft_atoi(const char *nptr);
 char	*ft_itoa(int n);
 char	*ft_itoh(size_t n);
 char	*ft_itoo(size_t n);

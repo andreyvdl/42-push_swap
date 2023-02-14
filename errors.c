@@ -6,7 +6,7 @@
 /*   By: adantas- <adantas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 15:07:45 by adantas-          #+#    #+#             */
-/*   Updated: 2023/02/13 15:06:33 by adantas-         ###   ########.fr       */
+/*   Updated: 2023/02/14 16:00:01 by adantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@ int	arg_is_over(char *arg, t_stack *stks)
 {
 	ssize_t	comp;
 
+	if (arg[0] != '-' && ft_strlen(arg) > 10)
+		return (free_strct(stks), msg(22));
+	else if (arg[0] == '-' && ft_strlen(arg) > 11)
+		return (free_strct(stks), msg(22));
 	comp = ft_atoi(arg);
 	if (comp > MAX_INT)
 		return (free_strct(stks), msg(22));
@@ -57,8 +61,10 @@ int	msg(int code)
 	return (0);
 }
 
-void	free_strct(t_stack *stks)
+int	free_strct(t_stack *stks)
 {
 	ft_free(stks->a);
 	ft_free(stks->b);
+	ft_free(stks->f);
+	return (0);
 }

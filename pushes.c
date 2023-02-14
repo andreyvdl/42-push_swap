@@ -6,7 +6,7 @@
 /*   By: adantas- <adantas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 12:48:51 by adantas-          #+#    #+#             */
-/*   Updated: 2023/02/09 12:53:58 by adantas-         ###   ########.fr       */
+/*   Updated: 2023/02/14 15:28:12 by adantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	push_a(t_stack *stks)
 {
-	int	i;
+	size_t	i;
 
 	if (!stks->sz_b)
 		return ;
@@ -32,7 +32,7 @@ void	push_a(t_stack *stks)
 
 void	push_b(t_stack *stks)
 {
-	int	i;
+	size_t	i;
 
 	if (!stks->sz_a)
 		return ;

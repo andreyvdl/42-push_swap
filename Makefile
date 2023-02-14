@@ -1,12 +1,12 @@
 # VAR ====================================
 
 NAME = push_swap
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g3
 LIBPATH = libft/
 # FILES ==================================
 
 SRCS = errors.c push_swap.c pushes.c rev_rotates.c \
-	rotates.c sorts.c swaps.c
+	rotates.c sorts.c swaps.c debug.c
 OBJS = $(SRCS:%.c=%.o)
 # COLORS =================================
 
