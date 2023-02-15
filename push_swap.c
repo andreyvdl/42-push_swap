@@ -25,7 +25,7 @@ int	main(int argc, char **argv)
 		exit(0);
 	}
 	insertion_sort(&stks);
-	if (argc < 4)
+	if (stks.sz_a < 100)
 		simple_solve(&stks);
 	else
 		solve_all(&stks);
@@ -63,6 +63,8 @@ void	simple_solve(t_stack *stks)
 		swap_a(stks);
 	else if (stks->sz == 3)
 		stooge_sort(stks);
+	else
+		selection_sort(stks);
 }
 
 void	solve_all(t_stack *stks)
