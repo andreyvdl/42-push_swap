@@ -6,7 +6,7 @@
 /*   By: adantas- <adantas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 15:07:45 by adantas-          #+#    #+#             */
-/*   Updated: 2023/02/14 16:00:01 by adantas-         ###   ########.fr       */
+/*   Updated: 2023/02/15 11:59:19 by adantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,22 @@ int	arg_is_invalid(char *arg, t_stack *stks)
 		if (!ft_isdigit(arg[i]))
 			return (free_strct(stks), msg(22));
 		i++;
+	}
+	return (0);
+}
+
+int	repeat_nums(t_stack *stks)
+{
+	size_t	i;
+	size_t	j;
+
+	i = -1;
+	while (++i < stks->sz_a)
+	{
+		j = i;
+		while (++j < stks->sz_a)
+			if (stks->a[i] == stks->a[j])
+				return (free_strct(stks), msg(22));
 	}
 	return (0);
 }

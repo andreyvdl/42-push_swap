@@ -6,7 +6,7 @@
 /*   By: adantas- <adantas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:36:58 by adantas-          #+#    #+#             */
-/*   Updated: 2023/02/14 14:17:47 by adantas-         ###   ########.fr       */
+/*   Updated: 2023/02/15 18:00:36 by adantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,12 @@ int	main(int argc, char **argv)
 		free_strct(&stks);
 		exit(0);
 	}
-	simple_solve(&stks);
-	//solve_all(&stks);
-	print_stacks(&stks);
+	insertion_sort(&stks);
+	if (argc < 4)
+		simple_solve(&stks);
+	else
+		solve_all(&stks);
+	//print_stacks(&stks);
 	free_strct(&stks);
 	exit(0);
 }
@@ -50,21 +53,36 @@ int	validate(int size, char **args, t_stack *stks)
 	stks->sz_a = size - 1;
 	stks->sz_b = 0;
 	stks->sz = stks->sz_a;
+	repeat_nums(stks);
 	return (0);
 }
 
 void	simple_solve(t_stack *stks)
 {
 	if (stks->sz == 2)
-	{
 		swap_a(stks);
-		free_strct(stks);
-		exit(0);
-	}
 	else if (stks->sz == 3)
-	{
 		stooge_sort(stks);
-		free_strct(stks);
-		exit(0);
+}
+
+void	solve_all(t_stack *stks)
+{
+	size_t	i;
+	size_t	j;
+	size_t	ref;
+
+	ref = 0;
+	while (stks->sz_a != 3 && !is_sorted(stks))
+	{
+		i = -1;
+		j = 0;
+		while (stks->a[++i] != stks->f[ref])
+			j++;
+		selection_sort(stks, j, ref);
+		ref++;
 	}
+	if (stks->sz_a == 3)
+		stooge_sort(stks);
+	while (stks->sz_b)
+		push_a(stks);
 }

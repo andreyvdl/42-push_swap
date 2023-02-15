@@ -34,10 +34,12 @@ $(OBJS):
 
 clean:
 	@rm -rf $(OBJS)
+	@make $@ -C $(LIBPATH)
 	@echo "$(WHITE)Objects deleted.$(RESET)"
 
 fclean: clean
 	@rm -rf $(NAME)
+	@make $@ -C $(LIBPATH)
 	@echo "$(PURPLE)$(NAME) removed.$(RESET)"
 
 re: fclean all
