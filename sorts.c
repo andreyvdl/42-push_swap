@@ -6,7 +6,7 @@
 /*   By: adantas- <adantas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:50:53 by adantas-          #+#    #+#             */
-/*   Updated: 2023/02/15 16:57:04 by adantas-         ###   ########.fr       */
+/*   Updated: 2023/02/16 17:57:11 by adantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	stooge_sort(t_stack *stks)
 {
-	while (!is_sorted(stks))
+	while (!is_sorted(stks, 1))
 	{
 		if (stks->a[0] < stks->a[1] && stks->a[0] < stks->a[2])
 		{
@@ -35,53 +35,66 @@ void	stooge_sort(t_stack *stks)
 	}
 }
 
-int	is_sorted(t_stack *stks)
+void	selection_sort(t_stack *stks)
 {
-	size_t	i;
-
-	i = -1;
-	while (++i < stks->sz_a - 1)
-	{
-		if (stks->a[i] > stks->a[i + 1])
-			return (0);
-	}
-	return (1);
-}
-
-void	insertion_sort(t_stack *stks)
-{
-	int		tmp;
 	size_t	i;
 	size_t	j;
+	size_t	ref;
 
-	stks->f[0] = stks->a[0];
-	i = 1;
-	while (i < stks->sz_a)
+	ref = 0;
+	while (stks->sz_a != 3 && !is_sorted(stks, 1))
 	{
-		j = i;
-		stks->f[i] = stks->a[i];
-		while (j != 0 && stks->f[j] < stks->f[j - 1])
-		{
-			tmp = stks->f[j - 1];
-			stks->f[j - 1] = stks->f[j];
-			stks->f[j] = tmp;
-			j--;
-		}
-		i++;
+		i = -1;
+		j = 0;
+		while (stks->a[++i] != stks->f[ref])
+			j++;
+		select_send_next(stks, j, ref);
+		ref++;
 	}
+	if (stks->sz_a == 3)
+		stooge_sort(stks);
+	while (stks->sz_b)
+		push_a(stks);
 }
 
-void	selection_sort(t_stack *stks, size_t dist, size_t ref)
-{
-	if (stks->sz_a / 2 <= dist)
-	{
-		while (stks->a[0] != stks->f[ref])
-			revrot_a(stks);
-	}
-	else
-	{
-		while (dist--)
-			rot_a(stks);
-	}
-	push_b(stks);
-}
+// void	mia_cambalhotas(t_stack *stks)
+// {
+// }
+
+// void	quick_sort(t_stack *stks)
+// {
+// 	int	tmp;
+
+// 	while (stks->sz_a)
+// 	{
+// 		tmp = stks->a[stks->sz_a - 1];
+// 		while (stks->a[0] != tmp)
+// 		{
+// 			if (stks->a[0] > tmp)
+// 				rot_a(stks);
+// 			else
+// 				push_b(stks);
+// 		}
+// 	}
+// }
+
+// void	radix_sort(t_stack *stks)
+// {
+// 	int	div;
+// 	int	bool;
+// 	int	max;
+// 	int	i;
+
+// 	div = 1;
+// 	bool = 1;
+// 	max = stks->f[stks->sz - 1];
+// 	while (max / div > 0 && (!is_sorted(stks, 1) || is_revsorted(stks, 0)))
+// 	{
+// 		i = -1;
+// 		while (++i < 10)
+// 		{
+// 		}
+// 	}
+// 	while (stks->sz_b > 0)
+// 		push_a(stks);
+// }

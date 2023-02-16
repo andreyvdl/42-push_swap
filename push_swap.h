@@ -6,7 +6,7 @@
 /*   By: adantas- <adantas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 13:57:04 by adantas-          #+#    #+#             */
-/*   Updated: 2023/02/15 16:55:55 by adantas-         ###   ########.fr       */
+/*   Updated: 2023/02/16 15:36:25 by adantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,17 @@ int		arg_is_invalid(char *arg, t_stack *stks);
 
 // push_swap.c functions
 int		validate(int size, char **args, t_stack *stks);
-void	solve_all(t_stack *stks);
 void	simple_solve(t_stack *stks);
 
 // sorts.c functions
-int		is_sorted(t_stack *stks);
 void	stooge_sort(t_stack *stks);
-void	insertion_sort(t_stack *stks);
-void	selection_sort(t_stack *stks, size_t dist, size_t ref);
+void	selection_sort(t_stack *stks);
+
+// utils.c functions
+int		is_sorted(t_stack *stks, int side);
+int		is_revsorted(t_stack *stks, int side);
+void	sort_reference(t_stack *stks);
+void	select_send_next(t_stack *stks, size_t dist, size_t ref);
 
 // debug.c
 void	print_stacks(t_stack *stks);

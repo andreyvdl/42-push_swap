@@ -6,7 +6,7 @@
 /*   By: adantas- <adantas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:36:58 by adantas-          #+#    #+#             */
-/*   Updated: 2023/02/15 18:00:36 by adantas-         ###   ########.fr       */
+/*   Updated: 2023/02/16 15:34:27 by adantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,16 @@ int	main(int argc, char **argv)
 	if (argc == 1)
 		exit(0);
 	validate(argc, argv, &stks);
-	if (is_sorted(&stks))
+	if (is_sorted(&stks, 1))
 	{
 		free_strct(&stks);
 		exit(0);
 	}
-	insertion_sort(&stks);
-	if (stks.sz_a < 100)
+	sort_reference(&stks);
+	if (stks.sz_a < 500)
 		simple_solve(&stks);
-	else
-		solve_all(&stks);
+	// else
+	// 	solve_all(&stks);
 	//print_stacks(&stks);
 	free_strct(&stks);
 	exit(0);
@@ -65,26 +65,4 @@ void	simple_solve(t_stack *stks)
 		stooge_sort(stks);
 	else
 		selection_sort(stks);
-}
-
-void	solve_all(t_stack *stks)
-{
-	size_t	i;
-	size_t	j;
-	size_t	ref;
-
-	ref = 0;
-	while (stks->sz_a != 3 && !is_sorted(stks))
-	{
-		i = -1;
-		j = 0;
-		while (stks->a[++i] != stks->f[ref])
-			j++;
-		selection_sort(stks, j, ref);
-		ref++;
-	}
-	if (stks->sz_a == 3)
-		stooge_sort(stks);
-	while (stks->sz_b)
-		push_a(stks);
 }
