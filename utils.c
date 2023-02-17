@@ -6,7 +6,7 @@
 /*   By: adantas- <adantas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 10:24:15 by adantas-          #+#    #+#             */
-/*   Updated: 2023/02/16 17:57:03 by adantas-         ###   ########.fr       */
+/*   Updated: 2023/02/17 16:49:53 by adantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,5 +87,36 @@ void	select_send_next(t_stack *stks, size_t dist, size_t ref)
 		while (dist--)
 			rot_a(stks);
 	}
-	push_b(stks);
+	if (!is_sorted(stks, 1))
+		push_b(stks);
+}
+
+void	bucket_send_next(t_stack *stks, size_t dist, int buck_value, int side)
+{
+	if (side == 1)
+	{
+		if (stks->sz_a / 2 < dist)
+		{
+			while (stks->a[0] != buck_value)
+				revrot_a(stks);
+		}
+		else
+		{
+			while (dist--)
+				rot_a(stks);
+		}
+	}
+	else
+	{
+		if (stks->sz_b / 2 < dist)
+		{
+			while (stks->b[0] != buck_value)
+				revrot_b(stks);
+		}
+		else
+		{
+			while (dist--)
+				rot_b(stks);
+		}
+	}
 }

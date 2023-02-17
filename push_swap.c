@@ -6,7 +6,7 @@
 /*   By: adantas- <adantas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:36:58 by adantas-          #+#    #+#             */
-/*   Updated: 2023/02/16 15:34:27 by adantas-         ###   ########.fr       */
+/*   Updated: 2023/02/17 17:38:37 by adantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ int	main(int argc, char **argv)
 		exit(0);
 	}
 	sort_reference(&stks);
-	if (stks.sz_a < 500)
+	if (stks.sz != 100 || stks.sz != 500)
 		simple_solve(&stks);
-	// else
-	// 	solve_all(&stks);
+	else
+		advanced_solve(&stks);
 	//print_stacks(&stks);
 	free_strct(&stks);
 	exit(0);
@@ -65,4 +65,18 @@ void	simple_solve(t_stack *stks)
 		stooge_sort(stks);
 	else
 		selection_sort(stks);
+}
+
+void	advanced_solve(t_stack *stks)
+{
+	size_t	i;
+	int		bucket[500];
+
+	i = -1;
+	while (++i < stks->sz)
+		bucket[i] = stks->f[i];
+	if (stks->sz == 100)
+		bucket_sort(stks, bucket, 25);
+	else
+		bucket_sort(stks, bucket, 125);
 }

@@ -6,7 +6,7 @@
 /*   By: adantas- <adantas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:50:53 by adantas-          #+#    #+#             */
-/*   Updated: 2023/02/16 17:57:11 by adantas-         ###   ########.fr       */
+/*   Updated: 2023/02/17 17:58:34 by adantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	selection_sort(t_stack *stks)
 	{
 		i = -1;
 		j = 0;
-		while (stks->a[++i] != stks->f[ref])
+		while (stks->a[++i] != stks->f[ref] && i < stks->sz_a)
 			j++;
 		select_send_next(stks, j, ref);
 		ref++;
