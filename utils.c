@@ -6,7 +6,7 @@
 /*   By: adantas- <adantas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 10:24:15 by adantas-          #+#    #+#             */
-/*   Updated: 2023/02/17 16:49:53 by adantas-         ###   ########.fr       */
+/*   Updated: 2023/02/22 11:34:48 by adantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,26 +32,6 @@ int	is_sorted(t_stack *stks, int side)
 	return (1);
 }
 
-int	is_revsorted(t_stack *stks, int side)
-{
-	size_t	i;
-
-	i = -1;
-	if (side == 1)
-	{
-		while (++i < stks->sz_a - 1)
-			if (stks->a[i] < stks->a[i + 1])
-				return (0);
-	}
-	else
-	{
-		while (++i < stks->sz_b - 1)
-			if (stks->b[i] < stks->b[i + 1])
-				return (0);
-	}
-	return (1);
-}
-
 void	sort_reference(t_stack *stks)
 {
 	int		tmp;
@@ -72,51 +52,5 @@ void	sort_reference(t_stack *stks)
 			j--;
 		}
 		i++;
-	}
-}
-
-void	select_send_next(t_stack *stks, size_t dist, size_t ref)
-{
-	if (stks->sz_a / 2 < dist)
-	{
-		while (stks->a[0] != stks->f[ref])
-			revrot_a(stks);
-	}
-	else
-	{
-		while (dist--)
-			rot_a(stks);
-	}
-	if (!is_sorted(stks, 1))
-		push_b(stks);
-}
-
-void	bucket_send_next(t_stack *stks, size_t dist, int buck_value, int side)
-{
-	if (side == 1)
-	{
-		if (stks->sz_a / 2 < dist)
-		{
-			while (stks->a[0] != buck_value)
-				revrot_a(stks);
-		}
-		else
-		{
-			while (dist--)
-				rot_a(stks);
-		}
-	}
-	else
-	{
-		if (stks->sz_b / 2 < dist)
-		{
-			while (stks->b[0] != buck_value)
-				revrot_b(stks);
-		}
-		else
-		{
-			while (dist--)
-				rot_b(stks);
-		}
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: adantas- <adantas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 15:07:45 by adantas-          #+#    #+#             */
-/*   Updated: 2023/02/15 11:59:19 by adantas-         ###   ########.fr       */
+/*   Updated: 2023/02/22 13:51:15 by adantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	arg_is_over(char *arg, t_stack *stks)
 	if (arg[0] != '-' && ft_strlen(arg) > 10)
 		return (free_strct(stks), msg(22));
 	else if (arg[0] == '-' && ft_strlen(arg) > 11)
+		return (free_strct(stks), msg(22));
+	else if (!arg || !arg[0] || ((arg[0] == '-' || arg[0] == '+') && !arg[1]))
 		return (free_strct(stks), msg(22));
 	comp = ft_atoi(arg);
 	if (comp > MAX_INT)

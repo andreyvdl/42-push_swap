@@ -6,7 +6,7 @@
 /*   By: adantas- <adantas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:36:58 by adantas-          #+#    #+#             */
-/*   Updated: 2023/02/17 17:38:37 by adantas-         ###   ########.fr       */
+/*   Updated: 2023/02/22 17:05:31 by adantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(int argc, char **argv)
 		exit(0);
 	}
 	sort_reference(&stks);
-	if (stks.sz != 100 || stks.sz != 500)
+	if (stks.sz != 100 && stks.sz != 500)
 		simple_solve(&stks);
 	else
 		advanced_solve(&stks);
@@ -73,10 +73,19 @@ void	advanced_solve(t_stack *stks)
 	int		bucket[500];
 
 	i = -1;
+	ft_bzero(bucket, 500);
 	while (++i < stks->sz)
 		bucket[i] = stks->f[i];
 	if (stks->sz == 100)
-		bucket_sort(stks, bucket, 25);
+	{
+		bucket_sort(stks, bucket, 20, 100);
+		push_b(stks);
+		push_order(stks);
+	}
 	else
-		bucket_sort(stks, bucket, 125);
+	{
+		bucket_sort(stks, bucket, 50, 500);
+		push_b(stks);
+		push_order(stks);
+	}
 }
