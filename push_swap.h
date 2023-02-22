@@ -6,7 +6,7 @@
 /*   By: adantas- <adantas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 13:57:04 by adantas-          #+#    #+#             */
-/*   Updated: 2023/02/22 12:24:20 by adantas-         ###   ########.fr       */
+/*   Updated: 2023/02/22 17:46:47 by adantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,5 @@ void	swap_ab(t_stack *stks);
 void	revrot_a(t_stack *stks);
 void	revrot_b(t_stack *stks);
 void	revrot_ab(t_stack *stks);
-
-// DELETE LATER
-void	print_stacks(t_stack *stks);
 
 #endif

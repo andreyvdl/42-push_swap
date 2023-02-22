@@ -6,7 +6,7 @@
 /*   By: adantas- <adantas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:36:58 by adantas-          #+#    #+#             */
-/*   Updated: 2023/02/22 17:05:31 by adantas-         ###   ########.fr       */
+/*   Updated: 2023/02/22 17:46:56 by adantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int	main(int argc, char **argv)
 		simple_solve(&stks);
 	else
 		advanced_solve(&stks);
-	//print_stacks(&stks);
 	free_strct(&stks);
 	exit(0);
 }
