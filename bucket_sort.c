@@ -6,7 +6,7 @@
 /*   By: adantas- <adantas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 17:58:16 by adantas-          #+#    #+#             */
-/*   Updated: 2023/02/22 16:49:28 by adantas-         ###   ########.fr       */
+/*   Updated: 2023/02/24 10:18:30 by adantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	bucket_sort(t_stack *stks, int bucket[], int buck_sz, int limiter)
 		while (stks->a[h_last] > bucket[buck_sz - 1] && h_last != 0)
 			h_last--;
 		if (h_first <= h_last)
-			which_send(stks, h_first, h_last);
+			bucket_send(stks, h_first, h_last);
 	}
 	if (limiter == 100)
 		bucket_sort(stks, bucket, buck_sz + 20, limiter);
@@ -39,7 +39,7 @@ void	bucket_sort(t_stack *stks, int bucket[], int buck_sz, int limiter)
 		bucket_sort(stks, bucket, buck_sz + 50, limiter);
 }
 
-void	which_send(t_stack *stks, size_t h_first, size_t h_last)
+void	bucket_send(t_stack *stks, size_t h_first, size_t h_last)
 {
 	if (stks->sz_a - h_last >= h_first)
 		push_to_b(stks, stks->a[h_first], 1);

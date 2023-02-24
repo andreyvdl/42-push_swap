@@ -6,7 +6,7 @@
 /*   By: adantas- <adantas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 13:57:04 by adantas-          #+#    #+#             */
-/*   Updated: 2023/02/22 17:46:47 by adantas-         ###   ########.fr       */
+/*   Updated: 2023/02/24 13:20:05 by adantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct s_stack
 // bucket_sort.c functions
 void	push_to_b(t_stack *stks, int ref, int rotation);
 void	push_order(t_stack *stks);
-void	which_send(t_stack *stks, size_t h_first, size_t h_last);
+void	bucket_send(t_stack *stks, size_t h_first, size_t h_last);
 void	bucket_sort(t_stack *stks, int bucket[], int buck_sz, int limiter);
 
 // errors.c functions
