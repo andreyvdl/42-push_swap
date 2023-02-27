@@ -6,7 +6,7 @@
 /*   By: adantas- <adantas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 15:07:45 by adantas-          #+#    #+#             */
-/*   Updated: 2023/02/22 13:51:15 by adantas-         ###   ########.fr       */
+/*   Updated: 2023/02/27 12:45:19 by adantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,26 @@ int	arg_is_invalid(char *arg, t_stack *stks)
 	int	i;
 
 	i = 0;
+	if (!arg[i])
+		return (free_strct(stks), msg(22));
+	while (arg[i] == 32)
+		i++;
+	if (!arg[i])
+		return (free_strct(stks), msg(22));
 	if (arg[i] == '-' || arg[i] == '+')
 		i++;
-	while (arg[i])
+	if (!arg[i] || !ft_isdigit(arg[i]))
+		return (free_strct(stks), msg(22));
+	while (arg[i] && arg[i] != 32)
 	{
 		if (!ft_isdigit(arg[i]))
 			return (free_strct(stks), msg(22));
 		i++;
 	}
+	while (arg[i] == 32)
+		i++;
+	if (arg[i])
+		return (free_strct(stks), msg(22));
 	return (0);
 }
 
