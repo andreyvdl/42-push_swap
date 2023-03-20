@@ -1,5 +1,9 @@
-# 42-push_swap
+<div align="center">
+  <img src="https://github.com/gawbsouza/42-pdh/blob/main/dark/push_swap_dark.svg"><br>
+  <a href="https://github.com/gawbsouza/42-pdh"><img src="https://github.com/gawbsouza/42-pdh/blob/main/badge/42pdh_badge.svg"></a>
+</div>
 
+___
 Program name | Files to turn in | Makefile rules | External functions | Result
 :---: | :---: | :---: | :---: | :---:
 push_swap (checker) | Makefile, \*.h, \*.c (\*.h, \*.c) | NAME, all, clean, fclean, re (bonus) | read, write, malloc, free, exit, libft | 0/80%
