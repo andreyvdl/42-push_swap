@@ -6,7 +6,7 @@
 ___
 Program name | Files to turn in | Makefile rules | External functions | Result
 :---: | :---: | :---: | :---: | :---:
-push_swap (checker) | Makefile, \*.h, \*.c (\*.h, \*.c) | NAME, all, clean, fclean, re (bonus) | read, write, malloc, free, exit, libft | 0/80%
+push_swap (checker) | Makefile, \*.h, \*.c (\*.h, \*.c) | NAME, all, clean, fclean, re (bonus) | read, write, malloc, free, exit, libft | 86/80%
 
 ## Objective
 
