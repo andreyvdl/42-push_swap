@@ -17,11 +17,12 @@ push_swap (checker) | Makefile, \*.h, \*.c (\*.h, \*.c) | NAME, all, clean, fcle
 
 ```sh
 make
-./push_swap <num1> <num2> <num3> ... <numx>
-```
-or
-```sh
-make
-ARG=$(seq <numi> <numf> | shuf) && ./push_swap $ARG
+./push_swap number ...
 ```
 
+or
+
+```sh
+make
+ARG=$(seq start_number final_number | shuf) && ./push_swap $ARG
+```
