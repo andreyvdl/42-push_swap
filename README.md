@@ -24,5 +24,5 @@ or
 
 ```sh
 make
-ARG=$(seq start_number final_number | shuf) && ./push_swap $ARG
+ARG=$(seq start_number final_number | shuf) ./push_swap $ARG
 ```
